@@ -2,7 +2,7 @@
     <style>
         /* Định dạng CSS inline cho phần menu */
         .menu {
-            background-color: #f9f6f6;
+            background-color: #969393;
             /* Màu nền menu */
             color: #ffffff;
             /* Màu chữ menu */

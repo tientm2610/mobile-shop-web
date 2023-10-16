@@ -9,6 +9,7 @@
             Home Page
         </title>
         <style>
+            /*Content */
             /* CSS cho layout Flexbox */
             .product-container {
                 display: flex;
@@ -61,11 +62,28 @@
                 color: #ffffff;
                 /* Màu chữ menu */
             }
+
+
+            /* Định dạng CSS inline cho phần header */
+            header {
+                background-color: #423f3f;
+                /* Màu nền */
+                color: #ecf1ed;
+                /* Màu chữ */
+                padding: 10px 0;
+                /* Khoảng cách đệm bên trên và bên dưới */
+                display: flex;
+                /* Hiển thị theo chiều ngang */
+                justify-content: space-between;
+                /* Canh giữa theo chiều ngang */
+                align-items: center;
+                /* Căn chỉnh theo chiều dọc */
+            }
         </style>
 
 
     <body>
-
+        <link rel="stylesheet" type="text/css" href="./css/style.css">
         <!--header-->
         <jsp:include page="Header.jsp"></jsp:include>
         <!--menu-->

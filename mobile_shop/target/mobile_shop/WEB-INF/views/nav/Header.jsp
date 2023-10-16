@@ -5,25 +5,9 @@
 
     <head>
         <title>Trang web bán điện thoại</title>
-        <link rel="stylesheet" type="text/css" href="style.css"> <!-- Đường dẫn đến file CSS -->
+        <link rel="stylesheet" type="text/css" href="./css/style.css"> <!-- Đường dẫn đến file CSS -->
         <style>
-            /* Định dạng CSS inline cho phần header */
-            header {
-                background-color: #423f3f;
-                /* Màu nền */
-                color: #ecf1ed;
-                /* Màu chữ */
-                padding: 10px 0;
-                /* Khoảng cách đệm bên trên và bên dưới */
-                display: flex;
-                /* Hiển thị theo chiều ngang */
-                justify-content: space-between;
-                /* Canh giữa theo chiều ngang */
-                align-items: center;
-                /* Căn chỉnh theo chiều dọc */
-            }
-
-
+            /* Header */
 
             div {
                 display: block;
