@@ -1,6 +1,7 @@
 package controllers;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.util.List;
 
 import jakarta.servlet.RequestDispatcher;
@@ -11,29 +12,28 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import models.Product;
 import models.db.DBCrud;
+import models.db.MySQLConnector;
 
-@WebServlet("/productDetail")
-public class ProductDetailServletController extends HttpServlet {
+@WebServlet("/deleteProduct")
+public class DeleteProductServletController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         resp.setContentType("text/html;charset=UTF-8");
-        String proId = req.getParameter("product_id");
-        // da lay duoc category
-
+        String product_id = req.getParameter("pid");
+        // get data from DBCrud
         DBCrud db = new DBCrud();
-        List<Product> productList = db.getProductByProduct_id(proId);
-        req.setAttribute("pList", productList);
+        db.deleteProduct(product_id);
+        // set data to jsp
 
-        req.getRequestDispatcher("/WEB-INF/views/ProductDetail.jsp").forward(req, resp);
-
+        // trang Homeview.jsp
+        resp.sendRedirect("adminProduct");
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // TODO Auto-generated method stub
-        super.doPost(req, resp);
+
     }
 
 }

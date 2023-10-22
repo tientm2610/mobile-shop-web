@@ -9,25 +9,22 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import models.Product;
+import models.Order;
+import models.User;
 import models.db.DBCrud;
 
-@WebServlet("/productDetail")
-public class ProductDetailServletController extends HttpServlet {
+@WebServlet("/adminOrder")
+public class AdminOrderManagementServletController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        resp.setContentType("text/html;charset=UTF-8");
-        String proId = req.getParameter("product_id");
-        // da lay duoc category
-
+        // get data from DBCrud
         DBCrud db = new DBCrud();
-        List<Product> productList = db.getProductByProduct_id(proId);
-        req.setAttribute("pList", productList);
-
-        req.getRequestDispatcher("/WEB-INF/views/ProductDetail.jsp").forward(req, resp);
-
+        List<Order> orderList = db.getAllOrder();
+        req.setAttribute("oList", orderList); // đẩy productList lên cái pList lên
+        // set data to jsp
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/views/AdminManagementOrder.jsp");
+        requestDispatcher.forward(req, resp);
     }
 
     @Override

@@ -30,17 +30,19 @@
                             <div class="row">
                                 <div class="col-md-9 col-lg-8 mx-auto">
                                     <h3 class="login-heading mb-4">Đăng Nhập</h3>
-
+                                    <p style="color: greenyellow;">${mess1}</p>
+                                    <!-- thong bao khi dang nhap ko thanh cong -->
+                                    <p class="text-danger">${mess}</p>
                                     <!-- Sign In Form -->
-                                    <form>
+                                    <form action="login" method="post">
                                         <div class="form-floating mb-3">
-                                            <input type="email" class="form-control" id="floatingInput"
+                                            <input name="email" type="email" class="form-control" id="floatingInput"
                                                 placeholder="name@example.com">
                                             <label for="floatingInput">Địa chỉ Email</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input type="password" class="form-control" id="floatingPassword"
-                                                placeholder="Password">
+                                            <input name="pass" type="password" class="form-control"
+                                                id="floatingPassword" placeholder="Password">
                                             <label for="floatingPassword">Mật khẩu</label>
                                         </div>
 

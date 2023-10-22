@@ -12,28 +12,26 @@ import jakarta.servlet.http.HttpServletResponse;
 import models.Product;
 import models.db.DBCrud;
 
-@WebServlet("/productDetail")
-public class ProductDetailServletController extends HttpServlet {
+@WebServlet("/search")
+public class SearchServletController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        resp.setContentType("text/html;charset=UTF-8");
-        String proId = req.getParameter("product_id");
-        // da lay duoc category
-
-        DBCrud db = new DBCrud();
-        List<Product> productList = db.getProductByProduct_id(proId);
-        req.setAttribute("pList", productList);
-
-        req.getRequestDispatcher("/WEB-INF/views/ProductDetail.jsp").forward(req, resp);
 
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // TODO Auto-generated method stub
-        super.doPost(req, resp);
+        resp.setContentType("text/html;charset=UTF-8");
+        String txtSearch = req.getParameter("txt"); // ten trung voi cai name o nut submit
+        // da lay duoc category
+
+        DBCrud db = new DBCrud();
+        List<Product> productList = db.searchProductByName(txtSearch);
+        req.setAttribute("pList", productList);
+
+        req.getRequestDispatcher("/WEB-INF/views/HomeView1.jsp").forward(req, resp);
+
     }
 
 }

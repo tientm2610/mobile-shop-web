@@ -46,57 +46,58 @@
                         <div class="card-img-left d-none d-md-flex">
                             <!-- Background image for card set in CSS! -->
                         </div>
-                        <div class="card-body p-4 p-sm-5">
-                            <h3 style="margin-left: 150px;">Đăng Ký</h3>
-                            <form>
+                        <form action="createAccount" method="post">
+                            <div class="card-body p-4 p-sm-5">
+                                <h3 style="margin-left: 150px;">Đăng Ký</h3>
+                                <form>
 
 
-                                <div class="form-floating mb-3">
-                                    <input type="email" class="form-control" id="floatingInputEmail"
-                                        placeholder="name@example.com">
-                                    <label for="floatingInputEmail">Địa chỉ Email</label>
-                                </div>
+                                    <div class="form-floating mb-3">
+                                        <input name="email" type="email" class="form-control" id="floatingInputEmail"
+                                            placeholder="name@example.com">
+                                        <label for="floatingInputEmail">Địa chỉ Email</label>
+                                    </div>
 
-                                <hr>
+                                    <hr>
 
-                                <div class="form-floating mb-3">
-                                    <input type="password" class="form-control" id="floatingPassword"
-                                        placeholder="Password">
-                                    <label for="floatingPassword">Mật khẩu</label>
-                                </div>
-                                <hr>
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floatingInputEmail" placeholder="name">
-                                    <label for="floatingInputEmail">Họ và tên</label>
-                                </div>
+                                    <div class="form-floating mb-3">
+                                        <input name="pass" type="password" class="form-control" id="floatingPassword"
+                                            placeholder="Password">
+                                        <label for="floatingPassword">Mật khẩu</label>
+                                    </div>
+                                    <hr>
+                                    <div class="form-floating mb-3">
+                                        <input name="fullname" type="text" class="form-control" id="floatingInputEmail"
+                                            placeholder="name">
+                                        <label for="floatingInputEmail">Họ và tên</label>
+                                    </div>
 
-                                <hr>
+                                    <hr>
 
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floatingPassword"
-                                        placeholder="phonenumber">
-                                    <label for="floatingPassword">Số điện thoại</label>
-                                </div>
-                                <hr>
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floatingInputEmail"
-                                        placeholder="address">
-                                    <label for="floatingInputEmail">Địa chỉ</label>
-                                </div>
+                                    <div class="form-floating mb-3">
+                                        <input name="phone" type="text" class="form-control" id="floatingPassword"
+                                            placeholder="phonenumber">
+                                        <label for="floatingPassword">Số điện thoại</label>
+                                    </div>
+                                    <hr>
+                                    <div class="form-floating mb-3">
+                                        <input name="address" type="text" class="form-control" id="floatingInputEmail"
+                                            placeholder="address">
+                                        <label for="floatingInputEmail">Địa chỉ</label>
+                                    </div>
 
-
-
-                                <div class="d-grid mb-2">
-                                    <button class="btn btn-lg btn-primary btn-login fw-bold text-uppercase"
-                                        type="submit">Đăng Ký</button>
-                                </div>
-                                <div class="text-center">
-                                    Đã có tài khoản? <a class="small" href="login">Đăng nhập</a>
-                                </div>
+                                    <div class="d-grid mb-2">
+                                        <button class="btn btn-lg btn-primary btn-login fw-bold text-uppercase"
+                                            type="submit">Đăng Ký</button>
+                                    </div>
+                                    <div class="text-center">
+                                        Đã có tài khoản? <a class="small" href="login">Đăng nhập</a>
+                                    </div>
 
 
-                            </form>
-                        </div>
+                                </form>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

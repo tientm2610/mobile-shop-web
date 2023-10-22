@@ -123,17 +123,18 @@
 
 
         <div class="menu">
+            <form action="search" method="post">
+                <div class="menu-logo">MobileShop</div>
+                <div class="search-bar">
+                    <input name="txt" type="text" placeholder="Bạn cần tìm gì..." class="div_left"
+                        style="width: 600px ; height: 60;">
+                    &nbsp;
 
-            <div class="menu-logo">MobileShop</div>
-            <div class="search-bar">
-                <input class="div_left" type="text" placeholder="Bạn cần tìm gì..." style="width: 600px ; height: 60;">
-                &nbsp;
-
-            </div>
-            <div class=" = div_right">
-                <button>Tìm kiếm</button>
-            </div>
-
+                </div>
+                <div class=" = div_right">
+                    <button type="submit">Tìm kiếm</button>
+                </div>
+            </form>
             <div class="login-button">
                 <button>Đăng nhập</button>
             </div>

@@ -12,28 +12,24 @@ import jakarta.servlet.http.HttpServletResponse;
 import models.Product;
 import models.db.DBCrud;
 
-@WebServlet("/productDetail")
-public class ProductDetailServletController extends HttpServlet {
+@WebServlet("/adminProduct")
+public class AdminProductManagementServletController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        resp.setContentType("text/html;charset=UTF-8");
-        String proId = req.getParameter("product_id");
-        // da lay duoc category
-
+        // get data from DBCrud
         DBCrud db = new DBCrud();
-        List<Product> productList = db.getProductByProduct_id(proId);
-        req.setAttribute("pList", productList);
-
-        req.getRequestDispatcher("/WEB-INF/views/ProductDetail.jsp").forward(req, resp);
-
+        List<Product> productList = db.getAllProduct();
+        // set data to jsp
+        req.setAttribute("pList", productList); // đẩy productList lên cái pList lên
+        // trang Homeview.jsp
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/views/AdminManagementProduct.jsp");
+        requestDispatcher.forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // TODO Auto-generated method stub
-        super.doPost(req, resp);
+        doGet(req, resp);
     }
 
 }

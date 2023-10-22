@@ -9,24 +9,24 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import models.Product;
 import models.db.DBCrud;
 
-@WebServlet("/productDetail")
-public class ProductDetailServletController extends HttpServlet {
+@WebServlet("/addToCart")
+public class AddToCart extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // add product
 
-        resp.setContentType("text/html;charset=UTF-8");
+        int quantity = 1;
+        int productId;
         String proId = req.getParameter("product_id");
-        // da lay duoc category
 
         DBCrud db = new DBCrud();
         List<Product> productList = db.getProductByProduct_id(proId);
         req.setAttribute("pList", productList);
-
-        req.getRequestDispatcher("/WEB-INF/views/ProductDetail.jsp").forward(req, resp);
 
     }
 

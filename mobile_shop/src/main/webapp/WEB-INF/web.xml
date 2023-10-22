@@ -4,4 +4,9 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+    <welcome-file-list>
+        <welcome-file>home</welcome-file>
+   
+        <!-- Thêm bất kỳ trang mặc định nào bạn muốn ở đây -->
+    </welcome-file-list>
 </web-app>
