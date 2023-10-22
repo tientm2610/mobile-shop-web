@@ -37,3 +37,12 @@ mobile_shop/target/mobile_shop/WEB-INF/views/ProductDetail.jsp
 mobile_shop/target/mobile_shop/WEB-INF/views/style.css
 mobile_shop/target/mobile_shop/WEB-INF/views/Thanks.jsp
 mobile_shop/.vscode/settings.json
+*.class
+
+.vscode
+
+/target
+
+*.war
+
+*.jar
