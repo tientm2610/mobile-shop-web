@@ -20,21 +20,6 @@ public class CartServletController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // resp.setContentType("text/html;charset=UTF-8");
-        // Cookie arr[] = req.getCookies();
-        // PrintWriter out = resp.getWriter();
-        // List<Product> productList = new ArrayList<>();
-        // DBCrud db = new DBCrud();
-
-        // for (Cookie o : arr) {
-        // if (o.getName().equals("product_id")) {
-        // String txt[] = o.getValue().split(",");
-        // for (String s : txt) {
-        // productList.add(db.getProductByCategory_id(s));
-        // }
-        // }
-
-        // }
 
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/views/Cart.jsp");
         requestDispatcher.forward(req, resp);

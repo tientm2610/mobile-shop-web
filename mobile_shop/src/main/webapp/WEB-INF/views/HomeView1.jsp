@@ -85,10 +85,19 @@
                                                             href="productDetail?product_id=${o.productId}">Xem chi
                                                             tiết</a>
                                                     </div><br>
-                                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto"
-                                                            href="addToCart?product_id=${o.productId}">Thêm vào giỏ
-                                                            hàng</a>
-                                                    </div>
+                                                    <form action="GioHang" method="post">
+                                                        <input type="hidden" min="1" value="1" name="soluong" />
+                                                        <input type="hidden" value="setCart" name="command" />
+                                                        <input type="hidden" value="${o.productId}" name="id" />
+                                                        <input type="hidden" value="${o.productName}" name="name" />
+                                                        <input type="hidden" value="${o.img}" name="image" />
+                                                        <input type="hidden" value="${o.price}" name="price" />
+                                                        <div class="text-center"><button type="submit"
+                                                                class="btn btn-outline-dark mt-auto"
+                                                                value="addToCart">Thêm vào giỏ
+                                                                hàng</button>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>

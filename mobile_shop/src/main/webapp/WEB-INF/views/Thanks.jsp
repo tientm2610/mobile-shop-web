@@ -51,7 +51,7 @@
 
     <body>
 
-        <div class="card" style="height: 620px;">
+        <div class="card" style="height: 650px;">
             <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
                 <i class="checkmark" class="thanks">✓</i>
             </div>

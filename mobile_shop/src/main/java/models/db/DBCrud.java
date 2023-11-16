@@ -393,6 +393,28 @@ public class DBCrud {
         }
     }
 
+    public void editAccount(String email, String fullname, String pass, String phone, String address, String userId) {
+        String sql = "UPDATE users SET  email = ?,full_name = ?," +
+                "password = ?,phone = ?, address = ?  WHERE user_id = ?;";
+        try {
+            // mở kết nối với MySQL
+            conn = new MySQLConnector().getMySQLConnection();
+            // Dua cau lenh querry sang MySQL
+            ps = conn.prepareStatement(sql);
+
+            ps.setString(2, email);
+            ps.setString(2, fullname);
+            ps.setString(3, pass);
+            ps.setString(4, phone);
+            ps.setString(5, address);
+            ps.setString(6, userId);
+            // Vì không trả về dữ liệu hay kết quả ra nên chỉ cần update
+            ps.executeUpdate();
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+    }
+
     public static void main(String[] args) {
         DBCrud db = new DBCrud();
         List<Product> productList = db.searchProductByName("iphone 15");

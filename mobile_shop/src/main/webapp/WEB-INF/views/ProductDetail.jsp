@@ -54,8 +54,19 @@
                             <li>Bảo vệ sản phẩm toàn diện với dịch vụ bảo hành mở rộng</li>
 
                             <br>
-                            <button type="button" class="btn btn-lg btn-primary mt-2" style="background-color: black;">
-                                Thêm Vào Giỏ Hàng</button>
+                            <form action="GioHang" method="post">
+                                <input type="hidden" min="1" value="1" name="soluong" />
+                                <input type="hidden" value="setCart" name="command" />
+                                <input type="hidden" value="${o.productId}" name="id" />
+                                <input type="hidden" value="${o.productName}" name="name" />
+                                <input type="hidden" value="${o.img}" name="image" />
+                                <input type="hidden" value="${o.price}" name="price" />
+                                <div><button type="submit" class="btn btn-lg btn-primary mt-2"
+                                        style="background-color: black;">
+                                        Thêm Vào Giỏ Hàng</button>
+                                </div>
+                            </form>
+
 
                         </ul>
 

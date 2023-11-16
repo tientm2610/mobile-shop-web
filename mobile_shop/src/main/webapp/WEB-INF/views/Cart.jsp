@@ -157,7 +157,7 @@
             <!-- <content></content> -->
             <!-- <format content inside menu> -->
 
-            <div class="container px-3 my-5 clearfix">
+            <div class="container px-3 my-5 clearfix" style="    height: 700px;">
                 <!-- Shopping cart table -->
                 <div class="card">
                     <div class="card-header">
@@ -169,11 +169,11 @@
                                 <thead>
                                     <tr>
                                         <!-- Set columns width -->
-                                        <th class="text-center py-3 px-4" style="min-width: 400px;">Tên Sản Phẩm &amp;
+                                        <th class="text-center py-3 px-4" style="width: 150px;">Tên Sản Phẩm &amp;
                                             Mô tả</th>
                                         <th class="text-right py-3 px-4" style="width: 100px;">Giá</th>
                                         <th class="text-center py-3 px-4" style="width: 120px;">Số lượng</th>
-                                        <th class="text-right py-3 px-4" style="width: 100px;">Tổng Cộng</th>
+                                        <th class="text-right py-3 px-4" style="width: 80px;">Thành tiền</th>
                                         <th class="text-center align-middle py-3 px-0" style="width: 40px;"><a href="#"
                                                 class="shop-tooltip float-none text-light" title=""
                                                 data-original-title="Clear cart"><i class="ino ion-md-trash"></i></a>
@@ -181,61 +181,50 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <c:forEach items="${pList}" var="o">
+                                    <c:set var="totalPrice" value="0" />
+                                    <c:forEach items="${cart}" var="cartItem">
                                         <tr>
-                                            <td class="p-4">
-                                                <div class="media align-items-center">
-                                                    <img src="${o.img}" class="d-block ui-w-40 ui-bordered mr-4" alt="">
-                                                    <div class="media-body">
-                                                        <a href="productDetail?product_id=${o.productId}"
-                                                            class="d-block text-dark">${o.productName}</a>
-
+                                            <th scope="row">
+                                                <div class="p-2">
+                                                    <img src="${cartItem.p.img}" alt="" width="70"
+                                                        class="img-fluid rounded shadow-sm">
+                                                    <div class="ml-3 d-inline-block align-middle">
+                                                        <h5 class="mb-0">
+                                                            <a href="productDetail?product_id=${cartItem.p.productId}"
+                                                                class="text-dark d-inline-block">${cartItem.p.productName}</a>
+                                                        </h5>
+                                                        <span class="text-muted font-weight-normal font-italic"></span>
                                                     </div>
                                                 </div>
+                                            </th>
+                                            <td class="align-middle"><strong>$${cartItem.p.price}</strong></td>
+                                            <td class="align-middle">
+                                                <a href="GioHang?command=deleteCart&id=${cartItem.p.productId}"><button
+                                                        class="btnSub">-</button></a>
+                                                <strong>${cartItem.quantity}</strong>
+                                                <a href="GioHang?command=addCart&id=${cartItem.p.productId}"><button
+                                                        class="btnAdd">+</button></a>
                                             </td>
-                                            <td class="text-right font-weight-semibold align-middle p-4">$${o.price}
-                                            </td>
-                                            <td class="align-middle p-4"><input type="number"
-                                                    class="form-control text-center" value="1"></td>
-                                            <td class="text-right font-weight-semibold align-middle p-4">$${o.price}
-                                            </td>
-                                            <td class="text-center align-middle px-0"><a href="#"
-                                                    class="shop-tooltip close float-none text-danger" title=""
-                                                    data-original-title="Remove">×</a></td>
-                                        </tr>
 
-                                        <tr>
-                                            <td class="p-4">
-                                                Tên sản phẩm
+                                            <td class="align-middle"><strong>$${cartItem.p.price *
+                                                    cartItem.quantity}</strong></td>
+                                            <td class="align-middle">
+                                                <a href="GioHang?command=removeFromCart&id=${cartItem.p.productId}"
+                                                    class="text-dark">
+                                                    <button type="button" class="btn btn-danger">Delete</button>
+                                                </a>
                                             </td>
-                                            <td class="text-right font-weight-semibold align-middle p-4">Giá</td>
-                                            <td class="align-middle p-4"><input type="text"
-                                                    class="form-control text-center" value="1">Số lượng</td>
-                                            <td class="text-right font-weight-semibold align-middle p-4">Tổng cộng</td>
-                                            <td class="text-center align-middle px-0"><a href="#"
-                                                    class="shop-tooltip close float-none text-danger" title=""
-                                                    data-original-title="Remove">×</a></td>
                                         </tr>
-                                        <tr>
-                                            <td class="p-4">
-                                                Tên sản phẩm
-                                            </td>
-                                            <td class="text-right font-weight-semibold align-middle p-4">Giá</td>
-                                            <td class="align-middle p-4"><input type="text"
-                                                    class="form-control text-center" value="1">Số lượng</td>
-                                            <td class="text-right font-weight-semibold align-middle p-4">Tổng cộng</td>
-                                            <td class="text-center align-middle px-0"><a href="#"
-                                                    class="shop-tooltip close float-none text-danger" title=""
-                                                    data-original-title="Remove">×</a></td>
-                                        </tr>
-
+                                        <c:set var="totalPrice"
+                                            value="${totalPrice + (cartItem.p.price * cartItem.quantity)}" />
                                     </c:forEach>
+
 
                                 </tbody>
                             </table>
                         </div>
                         <!-- / Shopping cart table -->
-
+                        <!-- Thanh toán -->
                         <div class="d-flex flex-wrap justify-content-between align-items-center pb-4">
                             <div class="mt-4">
                                 <label class="text-muted font-weight-normal">Nhập Mã Giảm Giá</label>
@@ -248,11 +237,13 @@
                             <div class="d-flex">
 
                                 <div class="text-right mt-4">
-                                    <label class="text-muted font-weight-normal m-0">Tổng Thanh Toán</label>
-                                    <div class="text-large"><strong>42.000.000₫</strong></div>
+                                    <label class="text-muted font-weight-normal m-0">Tổng Thanh
+                                        Toán</label>
+                                    <div class="text-large"><strong>$${totalPrice}</strong></div>
                                 </div>
                             </div>
                         </div>
+
 
                     </div>
                 </div>
@@ -260,7 +251,10 @@
 
             </div>
             <!--footer-->
+
             <jsp:include page="nav/Footer1.jsp"></jsp:include>
+
         </body>
+
 
         </html>

@@ -22,8 +22,9 @@
                                 style="background-color: darkgray;
                     color: white;"><img src="https://cdn-icons-png.flaticon.com/128/69/69524.png" style=" margin-right: 10px;
                             height: 20px;">Trang chủ</a>
-                            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!"><img
-                                    src="https://cdn-icons-png.flaticon.com/128/1077/1077114.png" style=" margin-right: 10px;
+                            <a class="list-group-item list-group-item-action list-group-item-light p-3"
+                                href="editProfile"><img src="https://cdn-icons-png.flaticon.com/128/1077/1077114.png"
+                                    style=" margin-right: 10px;
                             height: 20px;">Thông tin tài
                                 khoản</a>
                             <a class="list-group-item list-group-item-action list-group-item-light p-3"
